@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * XML system
+ * 
+ * @author      MarioSAM <eu@mariosam.com.br>
+ * @version     1.0.0
+ * @date        2021/01
+ * @copyright   Blog do Mario SAM
+ * 
+ * This XML prepare the admin page config of this module.
+ */
+-->
+<config>
+    <!-- Put a menu option on left menu -->
+    <tabs>
+        <mariosam translate="label" module="estimatecep">
+            <label>Mario SAM</label>
+            <sort_order>100</sort_order>
+        </mariosam>
+    </tabs>
+    <!-- create the sections of this module -->
+    <sections>
+        <estimatecep translate="label" module="estimatecep">
+            <label>C.E.P. Estimate</label>
+            <tab>mariosam</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>400</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <!-- block to set info about the privacy message -->
+                <cep_load_values translate="label comment">
+                    <label>Estimate CEP Settings</label>
+                    <comment><![CDATA[How to use EstimateCEP? Access the Mario SAM blog and read the post.]]></comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                
+                    <fields>
+                        <!-- Turn On or Turn off this module -->
+                        <enabled translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <!-- Set the message to show the user about your policy -->
+                        <country translate="label">
+                            <label>Countrie</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>estimatecep/countries</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Which countrie do you like to Estimate CEP?</comment>
+                        </country>
+                        <!-- -->
+                        <list_codes translate="label">
+                            <label>Estimate Options</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>estimatecep/listcodes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select the codes that you want to calculate.</comment>
+                        </list_codes>
+                        <!--  -->
+                        <cep_free translate="label">
+                            <label>Show FREE option shipping?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Include free shipping in the result list.</comment>
+                        </cep_free>
+                        <!--  -->
+                        <cep_free_value translate="label">
+                            <label>Product Price</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>When the price of product greater than.</comment>
+                            <depends><cep_free>1</cep_free></depends>
+                        </cep_free_value>
+                        <!--  -->
+                        <cep_free_days translate="label">
+                            <label>Delivery Days</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>How many days to delivery this option.</comment>
+                            <depends><cep_free>1</cep_free></depends>
+                        </cep_free_days>
+                        <!-- Set the place where the box will be displayed -->
+                        <cep_position translate="label">
+                            <label>Box Position</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>CSS id/class name of reference in your theme.</comment>
+                        </cep_position>
+                        <!-- Set custom CSS to shopping cart -->
+                        <css_cep translate="label">
+                            <label>Custom CSS</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can add personal css script.</comment>
+                        </css_cep>
+                        <!-- Set custom JS to shopping cart -->
+                        <js_cep translate="label">
+                            <label>Custom JS</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can add personal javascript code.</comment>
+                        </js_cep>
+                    </fields>
+                </cep_load_values>
+                <!-- block to set info about the privacy message -->
+                <cep_send_config translate="label">
+                    <label>Custom Send Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                
+                    <fields>
+                        <!--  -->
+                        <cep_nCdEmpresa translate="label">
+                            <label>Administrative Code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>If you have a contract with ETC. ex.: 08082650</comment>
+                        </cep_nCdEmpresa>
+                        <!--  -->
+                        <cep_sDsSenha translate="label">
+                            <label>Password</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Pass of your contract. ex.: 564321</comment>
+                        </cep_sDsSenha>
+                        <!--  -->
+                        <cep_nVlComprimento translate="label">
+                            <label>Length of your package</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Value in centimeter. ex.: 18</comment>
+                        </cep_nVlComprimento>
+                        <!--  -->
+                        <cep_nVlDiametro translate="label">
+                            <label>Diameter of your package</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Value in centimeter. ex.: 5</comment>
+                        </cep_nVlDiametro>
+                        <!--  -->
+                        <cep_nVlAltura translate="label">
+                            <label>Height of your package</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Value in centimeter. ex.: 2</comment>
+                        </cep_nVlAltura>
+                        <!--  -->
+                        <cep_nVlLargura translate="label">
+                            <label>Width of your package</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Value in centimeter. ex.: 11</comment>
+                        </cep_nVlLargura>
+                        <!--  -->
+                        <cep_nCdFormato translate="label">
+                            <label>Format of delivery</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>estimatecep/sendformats</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select your format of delivery.</comment>
+                        </cep_nCdFormato>
+                    </fields>
+                </cep_send_config>
+                <!-- block to set info about the privacy message -->
+                <cep_next_version translate="label comment">
+                    <label>Expected for the next EstimateCEP versions</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>999</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>  
+                    <comment><![CDATA[Below a list of things that I expect to implement in the next version of EstimateCEP module:]]></comment>
+                    <fields>
+                        <!-- -->
+                        <my_contact translate="label comment">
+                            <label>My Contact</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>99</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can talk with me and/or hire me!</comment>
+                        </my_contact>
+                    </fields>
+                </cep_next_version>
+            </groups>
+        </estimatecep>
+    </sections>
+</config>

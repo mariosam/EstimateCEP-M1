@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * XML config
+ * 
+ * Load CEP information for our customer in frontend.
+ *
+ * @author      MarioSAM <eu@mariosam.com.br>
+ * @date        Jan, 2021
+ * @version     1.0.0
+ */
+-->
+<config>
+    <!-- actual version of this module -->
+    <modules>
+        <MarioSAM_EstimateCep>
+            <version>1.0.0</version>
+        </MarioSAM_EstimateCep>
+    </modules>
+    <!-- configuration module class to this module -->
+    <global>
+        <blocks>
+            <estimatecep>
+                <class>MarioSAM_EstimateCep_Block</class>
+            </estimatecep>
+        </blocks>
+        <helpers>
+            <estimatecep>
+                <class>MarioSAM_EstimateCep_Helper</class>
+            </estimatecep>
+        </helpers>
+        <models>
+             <estimatecep>
+                <class>MarioSAM_EstimateCep_Model_Config_Source</class>
+             </estimatecep>
+        </models>
+    </global>
+    <default>
+        <!-- Set default values for fields of this module -->
+        <estimatecep>
+            <cep_load_values>
+                <enabled>0</enabled>
+                <country>brazil</country>
+                <cep_position>.add-to-cart-wrapper</cep_position>
+                <list_codes>04510,04014</list_codes>
+                <cep_free>1</cep_free>
+                <cep_free_value>10</cep_free_value>
+                <cep_free_days>14</cep_free_days>
+                <css_cep><![CDATA[#cep {}
+#res_frete {}
+#cep-button {}
+#calc_cep label {}
+.tocep {}
+.tipo {}
+.prazo {}
+.valor {}]]></css_cep>
+                <js_cep></js_cep>
+            </cep_load_values>
+            <cep_send_config>
+                <cep_nCdEmpresa></cep_nCdEmpresa>
+                <cep_sDsSenha></cep_sDsSenha>
+                <cep_nVlComprimento>18</cep_nVlComprimento>
+                <cep_nVlDiametro>5</cep_nVlDiametro>
+                <cep_nVlAltura>2</cep_nVlAltura>
+                <cep_nVlLargura>11</cep_nVlLargura>
+                <cep_nCdFormato>1</cep_nCdFormato>
+            </cep_send_config>
+            <cep_next_version>
+               <my_contact>eu@mariosam.com.br</my_contact>
+            </cep_next_version>
+        </estimatecep>
+    </default>
+    <frontend>
+        <!-- -->
+        <routers>
+            <estimatecep>
+                <use>standard</use>
+                <args>
+                    <module>MarioSAM_EstimateCep</module>
+                    <frontName>cepvalues</frontName>
+                </args>
+            </estimatecep>
+        </routers>
+        <!-- Set the XML resposable for update the theme layout -->
+        <layout>
+            <updates>
+                <estimatecep>
+                    <file>mariosam_estimatecep.xml</file>
+                </estimatecep>
+            </updates>
+        </layout>
+        <!-- Call the CSV translation keys to frontend words -->
+        <translate>
+            <modules>
+                <estimatecep>
+                    <files>
+                        <default>MarioSAM_EstimateCep.csv</default>
+                    </files>
+                </estimatecep>
+            </modules>
+        </translate>
+    </frontend>
+    <!-- Call the CSV translation keys to backend words -->
+    <adminhtml>
+        <translate>
+            <modules>
+                <estimatecep>
+                    <files>
+                        <default>MarioSAM_EstimateCep.csv</default>
+                    </files>
+                </estimatecep>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>

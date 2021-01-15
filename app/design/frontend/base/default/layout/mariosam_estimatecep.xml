@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * XML mariosam_estimatecep
+ * 
+ * @author      MarioSAM <eu@mariosam.com.br>
+ * @version     1.0.0
+ * @date        2021/01
+ * @copyright   Blog do Mario SAM
+ * 
+ * Insert the new file into the Magento theme to load the code.
+ */
+-->
+<layout version="1.0.0">
+    <!-- apenas em paginas de visualizacao de produto -->
+    <catalog_product_view>
+        <reference name="product.info.extrahint">
+            <block type="estimatecep/estimatecepblock" name="calculate_cep_product_page" template="mariosam/estimatecep/calculate_cep.phtml" ifconfig="estimatecep/cep_load_values/enabled" />
+        </reference>
+    </catalog_product_view>
+</layout>
