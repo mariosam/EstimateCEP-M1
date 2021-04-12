@@ -1,6 +1,6 @@
 <?php
 /**
- * Class EstimateCepBlock
+ * Class Estimatecepblock
  * 
  * @author      MarioSAM <eu@mariosam.com.br>
  * @version     1.0.0
@@ -10,10 +10,10 @@
  * This class collect the data to show them in frontend.
  */
 
-class MarioSAM_EstimateCep_Block_EstimateCepBlock extends Mage_Core_Block_Template
+class MarioSAM_EstimateCep_Block_Estimatecepblock extends Mage_Core_Block_Template
 {
     /**
-     * EstimateCepBlock constructor.
+     * Estimatecepblock constructor.
      *
      */
     protected function _construct()
